@@ -5,8 +5,8 @@
     grid-template-columns: repeat(20, 1fr); /* Adjust as needed */
 }
 .cell {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     border: 1px solid #333;
     background-color: darkslateblue; /* Default: dead cells */
 }
