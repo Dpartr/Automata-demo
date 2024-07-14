@@ -93,11 +93,24 @@ createGrid();
 generateNoise();
 
 // Example: Toggle cell state when clicked
-grid.addEventListener('click', (event) => {
+grid.addEventListener('pointerover', (event) => {
     if (event.target.classList.contains('cell')) {
         toggleCellState(event.target);
     }
 });
 
-// Example: Simulate automata every 2 seconds
-setInterval(simulateAutomata, 5000);
+const intervalSlider = document.getElementById('intervalSlider');
+let interval = parseInt(intervalSlider.value);
+console.log(intervalSlider);
+console.log(interval);
+
+function updateInterval() {
+    clearInterval(intervalid);
+    interval = parseInt(intervalSlider.value);
+    intervalid = setInterval(simulateAutomata, interval);
+
+}
+
+intervalSlider.addEventListener('input', updateInterval);
+
+let intervalid = setInterval(simulateAutomata, interval);
