@@ -3,7 +3,6 @@
     display: grid;
     width: min-content;
     grid-template-columns: repeat(20, 1fr); /* Adjust as needed */
-    align-content: center;
 }
 .cell {
     width: 10px;
@@ -17,13 +16,17 @@
 .slidecontainer {
     width: 100%;
 }
-
+body {
+    background-color: #333;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
 /*slider*/
 .slider {
     appearance: none;
     width: 300px;
     height: 25px;
-    background: #00d399;
+    background: seagreen;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
