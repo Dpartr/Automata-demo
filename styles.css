@@ -1,0 +1,16 @@
+/* Basic styling for the grid cells */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr); /* Adjust as needed */
+    width: min-content;
+    align-content: center;
+}
+.cell {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #333;
+    background-color: darkslateblue; /* Default: dead cells */
+}
+.alive {
+    background-color: seagreen; /* Alive cells */
+}
