@@ -65,7 +65,7 @@ function simulateAutomata() {
     cells.forEach((cell) => {
         score = getScore(cell);
         if (cell.dataset.state == 'alive') {
-            if (score < 2) {
+            if (score < 1) {
                 toggleCellState(cell);
             }
             else if (score > 3) {
@@ -76,9 +76,7 @@ function simulateAutomata() {
             if (score == 3) {
                 toggleCellState(cell);
             }
-            else if (score == 2) {
-                toggleCellState(cell);
-            }
+
         }
         //console.log(score);
     });
