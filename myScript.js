@@ -55,18 +55,11 @@ function getScore(cell) {
             neighborhoodScore += 1;
         }
     }
-    console.log(neighborhoodScore);
+    //console.log(neighborhoodScore);
     return neighborhoodScore;
 }
 // Simulate cellular automata (randomly toggle cells)
-function generateNoise() {
-    const cells = document.querySelectorAll('.cell');
-    cells.forEach((cell) => {
-        if (Math.random() < 0.10) {
-            toggleCellState(cell);
-        }
-    });
-}
+
 function simulateAutomata() {
     const cells = document.querySelectorAll('.cell');
     cells.forEach((cell) => {
@@ -83,8 +76,11 @@ function simulateAutomata() {
             if (score == 3) {
                 toggleCellState(cell);
             }
+            else if (score == 2) {
+                toggleCellState(cell);
+            }
         }
-        console.log(score);
+        //console.log(score);
     });
 }
 
@@ -101,8 +97,8 @@ grid.addEventListener('pointerover', (event) => {
 
 const intervalSlider = document.getElementById('intervalSlider');
 let interval = parseInt(intervalSlider.value);
-console.log(intervalSlider);
-console.log(interval);
+//console.log(intervalSlider);
+//console.log(interval);
 
 function updateInterval() {
     clearInterval(intervalid);
@@ -114,3 +110,15 @@ function updateInterval() {
 intervalSlider.addEventListener('input', updateInterval);
 
 let intervalid = setInterval(simulateAutomata, interval);
+
+const generateNoiseButton = document.getElementById('generateNoiseButton');
+console.log(generateNoiseButton);
+function generateNoise() {
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach((cell) => {
+        if (Math.random() < 0.35) {
+            toggleCellState(cell);
+        }
+    });
+}
+generateNoiseButton.addEventListener('click', generateNoise);
