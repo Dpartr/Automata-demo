@@ -14,19 +14,18 @@ function createGrid() {
             cell.dataset.state = 'dead'; // Custom attribute to track state
             cell.dataset.x = row;
             cell.dataset.y = col;
+            cell.textContent = null;
 
             // Combine x and y coordinates into a single key
             const coordinateKey = `${row},${col}`;
             cell.dataset.ck = coordinateKey;
+            cell.dataset.neighborScore = 0
             map[coordinateKey] = cell.dataset.state;
 
             grid.appendChild(cell);
         }
     }
 }
-//function checkNeighbors(cell) {
-//    const currentLocation = 
-//}
 // Toggle cell state (alive/dead)
 function toggleCellState(cell) {
     const currentState = cell.dataset.state;
@@ -34,6 +33,7 @@ function toggleCellState(cell) {
     cell.classList.toggle('alive', currentState === 'dead');
     map[cell.dataset.ck] = cell.dataset.state;
 }
+
 function getScore(cell) {
     const x = parseInt(cell.dataset.x);
     const y = parseInt(cell.dataset.y);
@@ -59,24 +59,33 @@ function getScore(cell) {
     return neighborhoodScore;
 }
 // Simulate cellular automata (randomly toggle cells)
-
-function simulateAutomata() {
+function scoreMap() {
     const cells = document.querySelectorAll('.cell');
     cells.forEach((cell) => {
-        score = getScore(cell);
+        cell.dataset.neighborScore = getScore(cell);
+        cell.textContent = cell.dataset.neighborScore;
+    });
+}
+function simulateAutomata() {
+    scoreMap();
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach((cell) => {
         if (cell.dataset.state == 'alive') {
-            if (score < 2 || score > 4) {
+            const score = cell.dataset.neighborScore;
+            if (score < 2 || score > 3 && cell.dataset.state == 'alive') {
                 toggleCellState(cell);
             }
-        }
+        } 
         else if (cell.dataset.state == 'dead'); {
-            if (score == 3) {
+            const score = cell.dataset.neighborScore;
+            if (score == 3 && cell.dataset.state == 'dead') {
                 toggleCellState(cell);
             }
 
         }
         //console.log(score);
     });
+    scoreMap();
 }
 
 // Initialize the grid
@@ -107,11 +116,10 @@ intervalSlider.addEventListener('input', updateInterval);
 let intervalid = setInterval(simulateAutomata, interval);
 
 const generateNoiseButton = document.getElementById('generateNoiseButton');
-console.log(generateNoiseButton);
 function generateNoise() {
     const cells = document.querySelectorAll('.cell');
     cells.forEach((cell) => {
-        if (Math.random() < 0.35) {
+        if (Math.random() < 0.51) {
             toggleCellState(cell);
         }
     });
