@@ -3,38 +3,51 @@
     display: grid;
     grid-template-columns: repeat(50, 1fr); /* Adjust as needed */
     width: min-content;
+    padding-bottom: 10px;
+    margin: auto;
+    padding: 1%;
+    margin-top: 40px;
+}
+.controlpanel {
+    width: 600px;
+    margin: auto;
+    padding: auto;
+
+}
+label {
+    font-style:italic;
+    font-weight: 600;
 }
 .cell {
     background-color: rgb(31, 27, 58); /* Default: dead cells */
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
 }
 .alive {
     background-color: rgb(88, 192, 133); /* Alive cells */
 }
-.slidecontainer {
-    width: 100%;
-}
 body {
-    background-color: #000613;
-    padding-right: 15%;
-    padding-left: 15%;
-    padding-top: 7%;
+    background-image: radial-gradient(#7d5db8 2%,#3e305a, black);
     font-family: Arial, Helvetica, sans-serif;
     color: lavender;
     
 }
-/*slider*/
+
 .button {
     height: 50px;
     color: black;
-    background-color: darkslateblue;
-    gap: 10%;
-
+    background-image: linear-gradient(to bottom right,black,
+         darkslateblue,rgb(130, 126, 156),white,rgb(130, 126, 156),darkslateblue, Black);
+    width: 140px;
+    margin:auto;
 }
 .slider {
     appearance: none;
-    width: 300px;
+    direction: rtl;
+    width: 80%;
     height: 25px;
     background: darkslateblue;
     outline: none;

@@ -37,7 +37,9 @@ function seed() {
     const cells = document.querySelectorAll('.cell');
     cells.forEach((cell) => {
         //console.log(cell.dataset.ck);
-        if (cell.dataset.ck == '1,1' || cell.dataset.ck == '2,1' || cell.dataset.ck == '2,0' || cell.dataset.ck == '3,1' || cell.dataset.ck == '3,2') {
+        if (cell.dataset.ck == '21,21' || cell.dataset.ck == '22,21' || 
+            cell.dataset.ck == '22,20' || cell.dataset.ck == '23,21' ||
+             cell.dataset.ck == '23,22') {
             toggleCellState(cell);
         }
     });
@@ -110,7 +112,7 @@ function simulateAutomata() {
 
 // Initialize the grid
 createGrid();
-
+seed();
 
 // Example: Toggle cell state when clicked
 grid.addEventListener('pointerover', (event) => {
@@ -139,7 +141,7 @@ const generateNoiseButton = document.getElementById('generateNoiseButton');
 function generateNoise() {
     const cells = document.querySelectorAll('.cell');
     cells.forEach((cell) => {
-        if (Math.random() < 0.51) {
+        if (Math.random() < 0.21 && cell.dataset.state == 'dead') {
             toggleCellState(cell);
         }
     });

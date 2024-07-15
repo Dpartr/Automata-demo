@@ -8,31 +8,30 @@
 
 </head>
 <body>
-    <h1>Conway's Game of Life</h1>
     <div class="grid" id="myGrid">
         <!-- Cells will be dynamically added here -->
     </div>
-    <div class="slidecontainer">
-        <h4>Interval Speed</h4>
-        <input type="range" min="200" max="2000" value="1000" class="slider" id="intervalSlider">
-    </div>
+    <div class="controlpanel">
+        <label>Simulation Speed</label><br>
+        <input type="range" min="200" max="2000" value="1000" class="slider" id="intervalSlider"><br>
         <button class="button" id='generateNoiseButton'>Generate Noise</button>
         <button class="button" id="generateSeedButton">Generate Life Seed</button>
-        <menu class="dropdown" id="dropdownmenu"></menu>
-    <div>
-        <p>
-            This is a Demo of Conway's game of life. 
-            The rules are. If a cell is dead and it has exactly 3 live neighbors, it will
-            change state to alive.
-            If a cell is alive and has 2 or 3 neighbors, it will continue to live, otherwise dying 
-            as if by under or over population
-            Press Generate Noise to Randomly change cell states.
-            Press Generate Seed to use the default start for the game of life.
-        </p>
-        <p>
-            If you are viewing this on a desktop browser, hover your mouse over the grid to interactively
-            change cell states.
-        </p>
+        <div>
+            <h1>Conway's Game of Life</h1>
+            <p>
+                This is a Demo of Conway's game of life. 
+                The rules are. If a cell is dead and it has exactly 3 live neighbors, it will
+                change state to alive.
+                If a cell is alive and has 2 or 3 neighbors, it will continue to live, otherwise dying 
+                as if by under or over population
+                Press Generate Noise to Randomly change cell states.
+                Press Generate Seed to use the default start for the game of life.
+            </p><br>
+            <p>
+                If you are viewing this on a desktop browser, hover your mouse over the grid to interactively
+                change cell states.
+            </p>
+        </div>
     </div>
     <script src="myScript.js"></script>
 </body>
