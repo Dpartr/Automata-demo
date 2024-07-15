@@ -1,14 +1,13 @@
 /* Basic styling for the grid cells */
 .grid {
     display: grid;
+    grid-template-columns: repeat(50, 1fr); /* Adjust as needed */
     width: min-content;
-    grid-template-columns: repeat(20, 1fr); /* Adjust as needed */
 }
 .cell {
-    width: 20px;
-    height: 20px;
-    border: 1px solid #333;
     background-color: rgb(31, 27, 58); /* Default: dead cells */
+    width: 10px;
+    height: 10px;
 }
 .alive {
     background-color: rgb(88, 192, 133); /* Alive cells */

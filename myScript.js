@@ -1,8 +1,8 @@
 // myScript.js
 
 // Constants
-const numRows = 20; // Number of rows
-const numCols = 20; // Number of columns
+const numRows = 50; // Number of rows
+const numCols = 50; // Number of columns
 const grid = document.getElementById('myGrid');
 const map = {};
 // Create the grid
