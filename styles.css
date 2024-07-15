@@ -27,7 +27,7 @@ label {
     border: 0px;
 }
 .alive {
-    background-color:darkslateblue; /* Alive cells */
+    background-color:rgb(166, 151, 255); /* Alive cells */
 }
 body {
     background-image: radial-gradient(#7d5db8 ,darkslateblue 30%,  rgb(20, 18, 32));
