@@ -8,30 +8,36 @@
     width: 20px;
     height: 20px;
     border: 1px solid #333;
-    background-color: darkslateblue; /* Default: dead cells */
+    background-color: rgb(31, 27, 58); /* Default: dead cells */
 }
 .alive {
-    background-color: seagreen; /* Alive cells */
+    background-color: rgb(88, 192, 133); /* Alive cells */
 }
 .slidecontainer {
     width: 100%;
 }
 body {
-    background-color: #333;
-    align-items: center;
+    background-color: #000613;
+    padding-right: 15%;
+    padding-left: 15%;
+    padding-top: 7%;
     font-family: Arial, Helvetica, sans-serif;
+    color: lavender;
+    
 }
 /*slider*/
 .button {
     height: 50px;
-    color: darkslateblue;
+    color: black;
+    background-color: darkslateblue;
+    gap: 10%;
 
 }
 .slider {
     appearance: none;
     width: 300px;
     height: 25px;
-    background: seagreen;
+    background: darkslateblue;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
