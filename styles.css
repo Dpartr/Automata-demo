@@ -19,7 +19,7 @@ label {
     font-weight: 600;
 }
 .cell {
-    background-color: rgb(31, 27, 58); /* Default: dead cells */
+    background-color: rgb(20, 18, 32); /* Default: dead cells */
     width: 12px;
     height: 12px;
     padding: 0px;
@@ -27,10 +27,10 @@ label {
     border: 0px;
 }
 .alive {
-    background-color: rgb(88, 192, 133); /* Alive cells */
+    background-color:darkslateblue; /* Alive cells */
 }
 body {
-    background-image: radial-gradient(#7d5db8 2%,#3e305a, black);
+    background-image: radial-gradient(#7d5db8 ,darkslateblue 30%,  rgb(20, 18, 32));
     font-family: Arial, Helvetica, sans-serif;
     color: lavender;
     
@@ -39,8 +39,8 @@ body {
 .button {
     height: 50px;
     color: black;
-    background-image: linear-gradient(to bottom right,black,
-         darkslateblue,rgb(130, 126, 156),white,rgb(130, 126, 156),darkslateblue, Black);
+    background-image: linear-gradient(to bottom right,#3e305a,
+         darkslateblue,#a18bc9,darkslateblue,#3e305a);
     width: 140px;
     margin:auto;
 }
@@ -49,7 +49,7 @@ body {
     direction: rtl;
     width: 80%;
     height: 25px;
-    background: darkslateblue;
+    background-image: radial-gradient(rgb(49, 43, 92),  rgb(45, 41, 66));
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
