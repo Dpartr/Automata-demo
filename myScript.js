@@ -161,7 +161,7 @@ function simulateAutomata() {
 
 // Initialize the grid
 createGrid();
-boomerang();
+//boomerang();
 
 // Example: Toggle cell state when clicked
 grid.addEventListener('pointerover', (event) => {
