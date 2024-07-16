@@ -14,7 +14,7 @@ function createGrid() {
             cell.dataset.state = 'dead'; // Custom attribute to track state
             cell.dataset.x = row;
             cell.dataset.y = col;
-            //cell.textContent = null;
+            //cell.innerHTML = "&#128910";
 
             // Combine x and y coordinates into a single key
             const coordinateKey = `${row},${col}`;
@@ -156,6 +156,7 @@ function simulateAutomata() {
 
 // Initialize the grid
 createGrid();
+generateNoise();
 
 // Example: Toggle cell state when clicked
 grid.addEventListener('pointerover', (event) => {
