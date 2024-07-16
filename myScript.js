@@ -45,9 +45,14 @@ function boomerang() {
     const cells = document.querySelectorAll('.cell');
     cells.forEach((cell) => {
         //console.log(cell.dataset.ck);
-        if (cell.dataset.ck == '21,21' || cell.dataset.ck == '22,21' || 
-            cell.dataset.ck == '22,23' || cell.dataset.ck == '23,21' ||
-             cell.dataset.ck == '23,22') {
+        if (cell.dataset.ck == '23,24' || cell.dataset.ck == '24,26' || 
+            cell.dataset.ck == '24,24' || cell.dataset.ck == '25,25' ||
+             cell.dataset.ck == '25,24') {
+            toggleCellState(cell);
+        }
+        if (cell.dataset.ck == '17,18' || cell.dataset.ck == '18,20' || 
+            cell.dataset.ck == '18,18' || cell.dataset.ck == '19,19' ||
+             cell.dataset.ck == '19,18') {
             toggleCellState(cell);
         }
     });
@@ -156,6 +161,7 @@ function simulateAutomata() {
 
 // Initialize the grid
 createGrid();
+boomerang();
 
 // Example: Toggle cell state when clicked
 grid.addEventListener('pointerover', (event) => {
