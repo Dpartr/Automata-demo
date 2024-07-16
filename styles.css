@@ -4,7 +4,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: lavender;
     width: auto;
-    display:block;
+    display:flex;
+    align-items: flex-start;
     padding: 3%;
     
 }
@@ -38,13 +39,13 @@ label {
     color: lavender;
     background-image: radial-gradient(rgb(41, 36, 78),#221d2c);
     font-size: larger;
-    width: 40vw;
+    width: 35vw;
     
 }
 .slider {
     appearance: none;
     direction: rtl;
-    width: 100%;
+    width: 50%;
     height: auto;
     background-image: radial-gradient(rgb(145, 141, 170),  rgb(57, 54, 70));
     outline: none;
@@ -52,7 +53,7 @@ label {
     -webkit-transition: .2s;
     transition: opacity .2s;
     accent-color: silver;
-    
+    margin-left: 10%;
 }
 
 /*mouse-over effects */
