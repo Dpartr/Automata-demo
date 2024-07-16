@@ -13,7 +13,7 @@
     </div>
     <div class="controlpanel">
         <label for="intervalSlider">Simulation Speed</label><br>
-        <input type="range" min="100" max="2000" value="100" class="slider" id="intervalSlider"><br>
+        <input type="range" min="50" max="2000" value="100" class="slider" id="intervalSlider"><br>
         <button class="button" id='generateNoiseButton'>Generate Noise</button><br>
         <button class="button" id="placeBoomerangButton">Place Boomerang</button><br>
         <button class="button" id="placeBlossomButton">Place Blossom</button><br>
@@ -23,12 +23,19 @@
         <h1>Conway's Game of Life</h1>
         <p>
             This is a Demo of Conway's game of life. 
-            The rules are. If a cell is dead and it has exactly 3 live neighbors, it will
-            change state to alive.
-            If a cell is alive and has 2 or 3 neighbors, it will continue to live, otherwise dying 
-            as if by isolation or overcrowding.
-            Press Generate Noise to Randomly change cell states.
-            Press Place Boomerang to create a boomerang in the center.
+            The rules are.
+        </p>
+        <ol>
+            <li>A live Cell will die if it has less than 2 Neighbors</li>
+            <li>A live cell will die if it has more than 3 Neighbors</li>
+            <li>A Dead cell will be born if it has exactly 3 Neighbors</li>
+        </ol>
+        <p>
+            The Game of Life has several Organisms. Use their cooresponding
+            button to place it on the grid and see it evolve. For example, 
+            placing the Blossom on a blank sheet will create a beautiful symmetric
+            animation.
+            Press Generate Noise to Randomly toggle cells to alive.
         </p>
         <p>
             If you are viewing this on a desktop browser, hover your mouse over the grid to interactively
