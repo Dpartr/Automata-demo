@@ -6,7 +6,7 @@
     padding-bottom: 10px;
     margin: auto;
     padding: 1%;
-    margin-top: 40px;
+    margin-top: 40px
 }
 .controlpanel {
     width: 600px;
@@ -24,10 +24,13 @@ label {
     height: 12px;
     padding: 0px;
     margin: 0px;
-    border: 0px;
+    border: 1px;
 }
 .alive {
     background-color:rgb(166, 151, 255); /* Alive cells */
+    border: white, 1px;
+    width: 11px;
+    height: 11px;
 }
 body {
     background-image: radial-gradient(#7d5db8 ,darkslateblue 30%,  rgb(20, 18, 32));
@@ -38,11 +41,10 @@ body {
 
 .button {
     height: 50px;
-    color: black;
+    color: lavender;
     background-image: linear-gradient(to bottom right,#3e305a,
-         darkslateblue,#a18bc9,darkslateblue,#3e305a);
-    width: 140px;
-    margin:auto;
+         darkslateblue,darkslateblue,#3e305a);
+    width: 450px;
 }
 .slider {
     appearance: none;

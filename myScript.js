@@ -33,13 +33,46 @@ function toggleCellState(cell) {
     cell.classList.toggle('alive', currentState === 'dead');
     map[cell.dataset.ck] = cell.dataset.state;
 }
-function seed() {
+function generateNoise() {
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach((cell) => {
+        if (Math.random() < 0.21 && cell.dataset.state == 'dead') {
+            toggleCellState(cell);
+        }
+    });
+}
+function boomerang() {
     const cells = document.querySelectorAll('.cell');
     cells.forEach((cell) => {
         //console.log(cell.dataset.ck);
         if (cell.dataset.ck == '21,21' || cell.dataset.ck == '22,21' || 
-            cell.dataset.ck == '22,20' || cell.dataset.ck == '23,21' ||
+            cell.dataset.ck == '22,23' || cell.dataset.ck == '23,21' ||
              cell.dataset.ck == '23,22') {
+            toggleCellState(cell);
+        }
+    });
+    scoreMap();
+}
+function blossom() {
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach((cell) => {
+        //console.log(cell.dataset.ck);
+        if (cell.dataset.ck == '30,24' || cell.dataset.ck == '30,26' || 
+            cell.dataset.ck == '31,24' || cell.dataset.ck == '31,26' ||
+             cell.dataset.ck == '32,24' || cell.dataset.ck == '32,26' ||
+            cell.dataset.ck == '29,25') {
+            toggleCellState(cell);
+        }
+    });
+    scoreMap();
+}
+function seed() {
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach((cell) => {
+        //console.log(cell.dataset.ck);
+        if (cell.dataset.ck == '21,41' || cell.dataset.ck == '22,40' || 
+            cell.dataset.ck == '22,41' || cell.dataset.ck == '23,42' ||
+             cell.dataset.ck == '23,41') {
             toggleCellState(cell);
         }
     });
@@ -78,6 +111,17 @@ function scoreMap() {
         //cell.textContent = cell.dataset.neighborScore;
     });
 }
+function clearMap() {
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach((cell) => {
+        //console.log(cell.dataset.ck);
+        if (cell.dataset.state == 'alive') {
+            toggleCellState(cell);
+        }
+    });
+    scoreMap();
+}
+
 function simulateAutomata() {
     scoreMap();
     const cells = document.querySelectorAll('.cell');
@@ -112,7 +156,6 @@ function simulateAutomata() {
 
 // Initialize the grid
 createGrid();
-seed();
 
 // Example: Toggle cell state when clicked
 grid.addEventListener('pointerover', (event) => {
@@ -137,15 +180,15 @@ intervalSlider.addEventListener('input', updateInterval);
 
 let intervalid = setInterval(simulateAutomata, interval);
 
+
+
 const generateNoiseButton = document.getElementById('generateNoiseButton');
-function generateNoise() {
-    const cells = document.querySelectorAll('.cell');
-    cells.forEach((cell) => {
-        if (Math.random() < 0.21 && cell.dataset.state == 'dead') {
-            toggleCellState(cell);
-        }
-    });
-}
 generateNoiseButton.addEventListener('click', generateNoise);
-const generateSeedButton = document.getElementById('generateSeedButton');
-generateSeedButton.addEventListener('click', seed)
+const placeSeedButton = document.getElementById('placeSeedButton');
+placeSeedButton.addEventListener('click', seed);
+const placeBoomerangButton = document.getElementById('placeBoomerangButton');
+placeBoomerangButton.addEventListener('click', boomerang);
+const placeBlossomButton = document.getElementById('placeBlossomButton');
+placeBlossomButton.addEventListener('click', blossom);
+const clearMapButton = document.getElementById('clearMapButton');
+clearMapButton.addEventListener('click', clearMap);
