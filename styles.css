@@ -1,16 +1,21 @@
 /* Basic styling for the grid cells */
+body {
+    background-image: radial-gradient(#7d5db8 ,darkslateblue 30%,  rgb(20, 18, 32));
+    font-family: Arial, Helvetica, sans-serif;
+    color: lavender;
+    width: min-content;
+    display:block;
+    
+}
 .grid {
     display: grid;
     grid-template-columns: repeat(50, 1fr); /* Adjust as needed */
     width: fit-content;
     padding-bottom: 10px;
-    margin: auto;
-    padding: 1%;
     margin-top: 40px
 }
 .controlpanel {
-    margin: auto;
-    padding: auto;
+
 
 }
 label {
@@ -28,15 +33,7 @@ label {
     background-color:rgb(166, 151, 255); /* Alive cells */
 
 }
-body {
-    background-image: radial-gradient(#7d5db8 ,darkslateblue 30%,  rgb(20, 18, 32));
-    font-family: Arial, Helvetica, sans-serif;
-    color: lavender;
-    width: min-content;
-    display:block;
-    margin: auto;
-    
-}
+
 
 .button {
     height: fit-content;
