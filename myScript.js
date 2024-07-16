@@ -156,7 +156,6 @@ function simulateAutomata() {
 
 // Initialize the grid
 createGrid();
-generateNoise();
 
 // Example: Toggle cell state when clicked
 grid.addEventListener('pointerover', (event) => {
