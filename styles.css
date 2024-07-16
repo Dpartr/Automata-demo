@@ -3,8 +3,9 @@ body {
     background-image: radial-gradient(#7d5db8 ,darkslateblue 30%,  rgb(20, 18, 32));
     font-family: Arial, Helvetica, sans-serif;
     color: lavender;
-    width: min-content;
+    width: auto;
     display:block;
+    padding: 3%;
     
 }
 .grid {
@@ -23,8 +24,8 @@ label {
 .cell {
     background-color: rgb(20, 18, 32); /* Default: dead cells */
     column-gap: 0px;
-    width: 12px;
-    height: 12px;
+    width: 1.8vw;
+    height: 1.8vw;
 }
 .alive {
     background-color:rgb(166, 151, 255); /* Alive cells */
