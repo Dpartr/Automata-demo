@@ -3,19 +3,26 @@ body {
     background-image: radial-gradient(#7d5db8 ,darkslateblue 30%,  rgb(20, 18, 32));
     font-family: Arial, Helvetica, sans-serif;
     color: lavender;
-    display:flexbox;
+    display: grid;
     align-items: flex-start;
+    padding: 5%;
+    margin: 5%;
+    max-width: 1180px;
+    min-width: 900px;
+    position: relative;
+
 }
 .grid {
     display: grid;
     grid-template-columns: repeat(50, 1fr); /* Adjust as needed */
     width: max-content;
+    height: auto;
     padding: 2%;
 }
 
 label {
     font-style:italic;
-    font-size: larger;
+    font-size: x-large;
 }
 .cell {
     background-color: rgb(20, 18, 32); /* Default: dead cells */
@@ -27,15 +34,12 @@ label {
     background-color:rgb(166, 151, 255); /* Alive cells */
 
 }
-.controlPanel {
-    display: flex;
-    padding: 2%;
-
+.buttonContainer {
+    padding: 5%;
+    margin: 5%;
 }
-
-
 .button {
-    height: auto;
+    height: 60px;
     color: lavender;
     background-image: radial-gradient(rgb(41, 36, 78),#221d2c);
     font-size: larger;
@@ -60,3 +64,4 @@ label {
 .slide:hover {
     opacity: 1;
 }
+

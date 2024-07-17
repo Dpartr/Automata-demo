@@ -11,18 +11,18 @@
     <div class="grid" id="myGrid">
         <!-- Cells will be dynamically added here -->
     </div>
-    <br class="mobile=break">
-    <div class="controlpanel">
+    <div class="controlContainer">
         <button class="button" id="placeBlossomButton">Place Blossom</button>
         <button class="button" id="placeSeedButton">Place Seed</button>
-        <button class="button" id="placeBoomerangButton">Place Boomerang</button>
+        <button class="button" id="placeBoomerangButton">Place Boomerang</button><br>
         <button class="button" id='generateNoiseButton'>Generate Noise</button>
         <button class="button" id="clearMapButton">Clear Map</button><br>
-        
+    
         <label for="intervalSlider">Simulation Speed</label>
         <input type="range" min="50" max="2000" value="100"
-         class="slider" id="intervalSlider"><br>
-
+            class="slider" id="intervalSlider">
+    </div>
+    <div class="paragraphContainer">
         <h2>Conway's Game of Life</h2>
         <p>
             This is a Demo of Conway's game of life. 
@@ -34,14 +34,15 @@
             <li>A Dead cell will be born if it has exactly 3 Neighbors</li>
         </ol>
         <p>
-            The Game of Life has several Organisms. Use their cooresponding
-            button to place it on the grid and see it evolve. For example, 
-            placing the Blossom on a blank sheet will create a beautiful symmetric
-            animation.
+            The Game of Life has several Organisms. <br>Use their cooresponding
+            button to place it on the grid and see it evolve. <br>For example, 
+            placing the Blossom on a blank sheet will create a beautiful<br> 
+            symmetrical animation.<br>
             Press Generate Noise to Randomly toggle cells to alive.
         </p>
         <p>
-            If you are viewing this on a desktop browser, hover your mouse over the grid to interactively
+            If you are viewing this on a desktop browser,<br>
+             hover your mouse over the grid to interactively
             change cell states.
         </p>
     </div>
