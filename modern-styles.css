@@ -1,0 +1,322 @@
+/* Modern CSS with dark/light mode support */
+:root {
+  /* Dark mode colors (default) */
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #2d2d2d;
+  --text-primary: #f5f5f5;
+  --text-secondary: #bbbbbb;
+  --accent-primary: #6366f1;  /* Indigo */
+  --accent-secondary: #a5b4fc;
+  --cell-dead: #1a1a2e;
+  --cell-alive: #8d8dff;
+  --button-bg: #2d2d3a;
+  --button-bg-hover: #3a3a4c;
+  --button-shadow: rgba(0, 0, 0, 0.2);
+  --slider-bg: #3a3a4c;
+  --slider-accent: #6366f1;
+}
+
+/* Light mode colors */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-primary: #f9fafb;
+    --bg-secondary: #f3f4f6;
+    --bg-tertiary: #e5e7eb;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --accent-primary: #4f46e5;  /* Indigo */
+    --accent-secondary: #818cf8;
+    --cell-dead: #e5e7eb;
+    --cell-alive: #6366f1;
+    --button-bg: #e5e7eb;
+    --button-bg-hover: #d1d5db;
+    --button-shadow: rgba(0, 0, 0, 0.05);
+    --slider-bg: #d1d5db;
+    --slider-accent: #4f46e5;
+  }
+}
+
+/* Theme toggle class (will be added via JavaScript) */
+:root.light-mode {
+  --bg-primary: #f9fafb;
+  --bg-secondary: #f3f4f6;
+  --bg-tertiary: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --accent-primary: #4f46e5;
+  --accent-secondary: #818cf8;
+  --cell-dead: #e5e7eb;
+  --cell-alive: #6366f1;
+  --button-bg: #e5e7eb;
+  --button-bg-hover: #d1d5db;
+  --button-shadow: rgba(0, 0, 0, 0.05);
+  --slider-bg: #d1d5db;
+  --slider-accent: #4f46e5;
+}
+
+/* Eye-friendly dark mode class */
+:root.eye-friendly {
+  --bg-primary: #16161d;
+  --bg-secondary: #242432;
+  --bg-tertiary: #2c2c3a;
+  --text-primary: #e2e2e5;
+  --text-secondary: #b4b4bb;
+  --accent-primary: #7b91d6;  /* Softer blue */
+  --accent-secondary: #9eb3f0;
+  --cell-dead: #232334;
+  --cell-alive: #7b91d6;
+  --button-bg: #2c2c3a;
+  --button-bg-hover: #363648;
+  --button-shadow: rgba(0, 0, 0, 0.2);
+  --slider-bg: #363648;
+  --slider-accent: #7b91d6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  max-width: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.theme-toggle {
+  display: flex;
+  gap: 0.5rem;
+  background-color: var(--bg-secondary);
+  padding: 0.5rem;
+  border-radius: 2rem;
+}
+
+.theme-btn {
+  border: none;
+  background-color: transparent;
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.theme-btn.active {
+  background-color: var(--accent-primary);
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(50, 1fr);
+  width: min-content;
+  gap: 1px;
+  background-color: var(--bg-tertiary);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px var(--button-shadow);
+}
+
+.cell {
+  background-color: var(--cell-dead);
+  width: 12px;
+  height: 12px;
+  transition: background-color 0.2s;
+  border-radius: 2px;
+}
+
+.cell.alive {
+  background-color: var(--cell-alive);
+  box-shadow: 0 0 2px var(--accent-secondary);
+}
+
+.controlContainer {
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 6px var(--button-shadow);
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.button {
+  background-color: var(--button-bg);
+  color: var(--text-primary);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px var(--button-shadow);
+}
+
+.button:hover {
+  background-color: var(--button-bg-hover);
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.75rem;
+}
+
+.slider-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  min-width: 40px;
+}
+
+label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.slider {
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background-color: var(--slider-bg);
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  border-radius: 4px;
+  accent-color: var(--slider-accent);
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background-color: var(--accent-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background-color: var(--accent-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.paragraphContainer {
+  background-color: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 4px 6px var(--button-shadow);
+}
+
+.paragraphContainer p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.paragraphContainer ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.paragraphContainer li {
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+  
+  .button {
+    width: 100%;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion) {
+  * {
+    transition: none !important;
+  }
+}
